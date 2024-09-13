@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .cart-container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cart-quantity {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .buttons button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .buttons button:hover {
+            transform: scale(1.05);
+        }
+
+        .add-to-cart {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .add-to-cart:hover {
+            background-color: #e5533d;
+        }
+
+        .add-two {
+            background-color: #20b2aa;
+            color: white;
+        }
+
+        .add-two:hover {
+            background-color: #199f95;
+        }
+
+        .reset-cart {
+            background-color: #f08080;
+            color: white;
+        }
+
+        .reset-cart:hover {
+            background-color: #e07070;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cart-container">
+    <h1>Shopping Cart</h1>
+    <div class="cart-quantity" id="cartQuantity">Cart Quantity: 0</div>
+    <div class="buttons">
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+        <button class="add-two" onclick="addTwo()">+2</button>
+        <button class="reset-cart" onclick="resetCart()">Reset Cart</button>
+    </div>
+</div>
+
+<script>
+    
+    let cartQuantity = 0;
+
+    
+    function addToCart() {
+        cartQuantity += 1;
+        updateCart();
+    }
+
+    
+    function addTwo() {
+        cartQuantity += 2;
+        updateCart();
+    }
+
+    
+    function resetCart() {
+        cartQuantity = 0;
+        updateCart();
+    }
+
+   
+    function updateCart() {
+        document.getElementById('cartQuantity').innerText = `Cart Quantity: ${cartQuantity}`;
+        console.log(`Cart Quantity Updated: ${cartQuantity}`);
+    }
+</script>
+
+</body>
+</html>
